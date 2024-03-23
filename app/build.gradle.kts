@@ -13,7 +13,7 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField ("String", "TOKEN_API", project.findProperty("apiKey").toString())
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -35,6 +35,7 @@ android {
     }
 
     buildFeatures{
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -50,6 +51,10 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("com.github.bumptech.glide:glide:5.0.0-rc01")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.12")
+    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
