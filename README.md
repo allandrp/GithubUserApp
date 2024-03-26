@@ -19,16 +19,23 @@
   # Application Demo
    <p align="center">
      <a href="https://github.com/allandrp/GithubUserApp">
-    <img src="Demo/demo1.gif" alt="Logo" width="750" height="350"> </a>
+    <img src="demo/demo1.gif" alt="Logo" width="360" height="640"> </a>
      <a href="https://github.com/allandrp/GithubUserApp">
-    <img src="Demo/demo2.gif" alt="Logo" width="750" height="350"> </a>
+    <img src="demo/demo2.gif" alt="Logo" width="360" height="640"> </a>
   </p>
 </div>
 
-# Backgrounder
+# About
 <p align="justify">
-Aplikasi untuk menampilkan user github dengan memanfaatkan API github didalamnya.
+Aplikasi untuk menampilkan user github dengan memanfaatkan API github didalamnya. Terdapat beberapa fitur didalamnya yaitu menampilkan list user github, mencari user github spesifik dan menampilkan followers dan following dari user github
 </p>
+
+# External Library
+<ol>
+  <li>Retrofit2</li>
+  <li>Glide</li>
+  <li>OkHttp3</li>
+</ol>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
