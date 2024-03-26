@@ -17,7 +17,7 @@ data class ResponseUserDetail(
 	val twitterUsername: Any,
 
 	@field:SerializedName("bio")
-	val bio: Any,
+	val bio: String,
 
 	@field:SerializedName("created_at")
 	val createdAt: String,
@@ -41,7 +41,7 @@ data class ResponseUserDetail(
 	val siteAdmin: Boolean,
 
 	@field:SerializedName("company")
-	val company: Any,
+	val company: String,
 
 	@field:SerializedName("id")
 	val id: Int,
@@ -59,7 +59,7 @@ data class ResponseUserDetail(
 	val organizationsUrl: String,
 
 	@field:SerializedName("hireable")
-	val hireable: Any,
+	val hireable: Boolean,
 
 	@field:SerializedName("starred_url")
 	val starredUrl: String,
@@ -95,7 +95,7 @@ data class ResponseUserDetail(
 	val name: String,
 
 	@field:SerializedName("location")
-	val location: Any,
+	val location: String,
 
 	@field:SerializedName("node_id")
 	val nodeId: String

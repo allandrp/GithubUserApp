@@ -1,5 +1,7 @@
 package com.example.githubuserapp.data.api
 
+import com.example.githubuserapp.data.response.ResponseFollowers
+import com.example.githubuserapp.data.response.ResponseFollowersItem
 import com.example.githubuserapp.data.response.ResponseListUser
 import com.example.githubuserapp.data.response.ResponseListUserItem
 import com.example.githubuserapp.data.response.ResponseSearchUser
@@ -23,5 +25,11 @@ interface ApiService {
     fun searchUser(
         @Query("q") username: String
     ): Call <ResponseSearchUser>
+
+    @GET("users/{username}/{pageName}")
+    fun getFollowers(
+        @Path("username") username: String,
+        @Path("pageName") pageName: String,
+    ): Call <ArrayList<ResponseFollowersItem>>
 
 }

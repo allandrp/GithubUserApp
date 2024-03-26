@@ -9,7 +9,10 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.ResponseListUserItem
 import com.example.githubuserapp.databinding.ItemGithubUserBinding
 
-class AdapterListUser(private val listUser: ArrayList<ResponseListUserItem>) :
+class AdapterListUser(
+    private val listUser: ArrayList<ResponseListUserItem>,
+    private val onClick: (ResponseListUserItem) -> (Unit)
+) :
     RecyclerView.Adapter<AdapterListUser.ListUserVH>() {
 
     class ListUserVH(val binding: ItemGithubUserBinding) : ViewHolder(binding.root)
@@ -33,6 +36,10 @@ class AdapterListUser(private val listUser: ArrayList<ResponseListUserItem>) :
             Glide.with(itemView.context).load(user.avatarUrl)
                 .placeholder(R.drawable.avatar_placeholder).circleCrop()
                 .into(binding.usernameProfilePic)
+
+            binding.root.setOnClickListener {
+                onClick(user)
+            }
         }
     }
 }

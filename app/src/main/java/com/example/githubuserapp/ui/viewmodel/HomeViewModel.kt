@@ -1,13 +1,9 @@
 package com.example.githubuserapp.ui.viewmodel
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.githubuserapp.data.api.ApiConfig
-import com.example.githubuserapp.data.api.ApiService
-import com.example.githubuserapp.data.response.ResponseListUser
 import com.example.githubuserapp.data.response.ResponseListUserItem
 import com.example.githubuserapp.data.response.ResponseSearchUser
 import com.example.githubuserapp.utils.Event

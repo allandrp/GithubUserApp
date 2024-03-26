@@ -9,8 +9,10 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.ResponseListUserItem
 import com.example.githubuserapp.databinding.FragmentHomeBinding
 import com.example.githubuserapp.ui.viewmodel.HomeViewModel
@@ -88,7 +90,12 @@ class HomeFragment : Fragment() {
     }
 
     fun setRecyclerview(listData: ArrayList<ResponseListUserItem>) {
-        adapterListUser = AdapterListUser(listData)
+        adapterListUser = AdapterListUser(listData){
+            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
+            toDetailFragment.username = it.login
+            findNavController().navigate(toDetailFragment)
+        }
+
         val layoutManager = LinearLayoutManager(requireActivity())
         with(binding) {
             mainRecyclerView.layoutManager = layoutManager
