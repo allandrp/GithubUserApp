@@ -54,13 +54,16 @@ class HomeFragment : Fragment() {
             }
 
             requireActivity().onBackPressedDispatcher.addCallback(
-                viewLifecycleOwner,
+                requireActivity(),
                 object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
                         if (mainSearchView.isShowing) {
                             mainSearchView.hide()
-                        } else {
-                            requireActivity().onBackPressed()
+                        }else{
+                            if (isEnabled) {
+                                isEnabled = false
+                                requireActivity().onBackPressed()
+                            }
                         }
                     }
                 })
