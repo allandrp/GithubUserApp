@@ -1,4 +1,4 @@
-package com.example.githubuserapp.ui
+package com.example.githubuserapp.ui.followers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,10 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.ResponseFollowersItem
 import com.example.githubuserapp.databinding.ItemGithubUserBinding
 
-class AdapterFollowers(private val listFollower: ArrayList<ResponseFollowersItem>) :
+class AdapterFollowers(
+    private val listFollower: ArrayList<ResponseFollowersItem>,
+    private val onClick: (ResponseFollowersItem) -> (Unit)
+) :
     RecyclerView.Adapter<AdapterFollowers.FollowerViewHolder>() {
     class FollowerViewHolder(val binding: ItemGithubUserBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -30,6 +33,10 @@ class AdapterFollowers(private val listFollower: ArrayList<ResponseFollowersItem
             binding.usernameTextview.text = user.login
             Glide.with(binding.root.context).load(user.avatarUrl).circleCrop()
                 .placeholder(R.drawable.avatar_placeholder).into(binding.usernameProfilePic)
+
+            itemView.setOnClickListener{
+                onClick(user)
+            }
         }
     }
 }

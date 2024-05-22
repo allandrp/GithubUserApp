@@ -14,22 +14,22 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("users")
-    fun getListUser():Call<ArrayList<ResponseListUserItem>>
+    suspend fun getListUser():ArrayList<ResponseListUserItem>
 
     @GET("users/{username}")
-    fun getDetailUser(
+    suspend fun getDetailUser(
         @Path("username") username: String
-    ): Call<ResponseUserDetail>
+    ): ResponseUserDetail
 
     @GET("search/users")
-    fun searchUser(
+    suspend fun searchUser(
         @Query("q") username: String
-    ): Call <ResponseSearchUser>
+    ): ResponseSearchUser
 
     @GET("users/{username}/{pageName}")
-    fun getFollowers(
+    suspend fun getFollowers(
         @Path("username") username: String,
         @Path("pageName") pageName: String,
-    ): Call <ArrayList<ResponseFollowersItem>>
+    ): ArrayList<ResponseFollowersItem>
 
 }
